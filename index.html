@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WTMG Labs — Physical AI for the Global Majority</title>
+  <meta name="description" content="Physical AI for environmental awareness, delivered through WhatsApp. Built for the world big tech forgot." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f0e8;
+      --orange: #c9a84c;
+      --orange-dim: #a8873a;
+      --grey: #2a2a2a;
+      --grey-light: #3d3d3d;
+      --text-muted: #888;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 15px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.4;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2rem 3rem;
+      border-bottom: 1px solid var(--grey);
+      position: sticky;
+      top: 0;
+      background: var(--black);
+      z-index: 100;
+    }
+
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--orange); }
+
+    nav a.cta {
+      font-size: 0.8rem;
+      color: var(--orange);
+      text-decoration: none;
+      border: 1px solid var(--orange);
+      padding: 0.5rem 1rem;
+      transition: all 0.2s;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    nav a.cta:hover { background: var(--orange); color: var(--black); }
+
+    .hero {
+      padding: 6rem 3rem 4rem;
+      max-width: 900px;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      border: 1px solid var(--orange-dim);
+      padding: 0.3rem 0.7rem;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 em { font-style: normal; color: var(--orange); }
+
+    .hero p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      background: var(--orange);
+      color: var(--black);
+      padding: 0.8rem 1.8rem;
+      text-decoration: none;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--orange-dim); }
+
+    .btn-secondary {
+      color: var(--white);
+      padding: 0.8rem 1.8rem;
+      text-decoration: none;
+      font-size: 0.85rem;
+      border: 1px solid var(--grey-light);
+      transition: border-color 0.2s;
+    }
+
+    .btn-secondary:hover { border-color: var(--white); }
+
+    .divider { border: none; border-top: 1px solid var(--grey); margin: 0 3rem; }
+
+    .product {
+      padding: 5rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      max-width: 1100px;
+      animation: fadeUp 1s ease 0.2s both;
+    }
+
+    .product-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .product h2 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .product p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .feature-list { list-style: none; margin-top: 1.5rem; }
+
+    .feature-list li {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--grey);
+      font-size: 0.85rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .feature-list li::before { content: '→'; color: var(--orange); flex-shrink: 0; }
+
+    .demo-block {
+      background: var(--grey);
+      padding: 2rem;
+      border-left: 3px solid var(--orange);
+    }
+
+    .demo-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1.2rem;
+    }
+
+    .demo-item { margin-bottom: 1.2rem; font-size: 0.82rem; line-height: 1.7; }
+    .demo-item .time { color: var(--orange); font-weight: 500; }
+    .demo-item .desc { color: var(--text-muted); }
+
+    .story {
+      padding: 5rem 3rem;
+      max-width: 680px;
+      animation: fadeUp 1s ease 0.4s both;
+    }
+
+    .story-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .story blockquote {
+      font-family: 'Syne', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 1.4;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      border-left: 3px solid var(--orange);
+      padding-left: 1.5rem;
+    }
+
+    .story p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .footer {
+      padding: 3rem;
+      border-top: 1px solid var(--grey);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-left {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+    }
+
+    .footer-left span { color: var(--orange); }
+
+    .footer-sub {
+      font-size: 0.75rem;
+      color: var(--grey-light);
+      margin-top: 0.4rem;
+    }
+
+    .footer-right { display: flex; gap: 1.5rem; }
+
+    .footer-right a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .footer-right a:hover { color: var(--orange); }
+
+    @media (max-width: 700px) {
+      nav { padding: 1.5rem; }
+      .hero { padding: 4rem 1.5rem 3rem; }
+      .product { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
+      .story { padding: 3rem 1.5rem; }
+      .footer { padding: 2rem 1.5rem; }
+      .divider { margin: 0 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="logo" href="/">WTMG<span>.</span>LABS</a>
+    <a class="cta" href="https://github.com/Ademiluyi/gatemanai" target="_blank">GitHub →</a>
+  </nav>
+
+  <section class="hero">
+    <div class="tag">Physical AI — Lagos, Nigeria</div>
+    <h1>The door knows.<br /><em>WhatsApp tells you.</em></h1>
+    <p>
+      Physical AI for environmental awareness, delivered through WhatsApp.
+      Built for the communities that existing smart-home technology was never designed to serve.
+    </p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="https://github.com/Ademiluyi/gatemanai" target="_blank">View on GitHub</a>
+      <a class="btn-secondary" href="mailto:hello@wtmglabs.com">Get in touch</a>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="product">
+    <div>
+      <div class="product-label">First product</div>
+      <h2>Gateman-AI</h2>
+      <p>
+        A WhatsApp-native security and accessibility agent for homes and small businesses.
+        Runs on a $35 Raspberry Pi or any existing RTSP camera. All AI inference stays local.
+        Nothing leaves your network.
+      </p>
+      <p>
+        No custom app. No cloud subscription. No per-message fees.
+        Designed for unreliable power, unstable internet, and tight hardware budgets.
+      </p>
+      <ul class="feature-list">
+        <li>Instant WhatsApp notification with photo and AI scene description</li>
+        <li>Ask "who's at the gate?" and get a live photo back</li>
+        <li>Ask "what happened in the last hour?" and Gemma reads the event log</li>
+        <li>Works with existing Hikvision, Dahua, or any RTSP camera</li>
+        <li>Runs entirely on your local network — private by design</li>
+      </ul>
+    </div>
+
+    <div class="demo-block">
+      <div class="demo-label">Live demo timing</div>
+      <div class="demo-item">
+        <div class="time">~5 seconds</div>
+        <div class="desc">Motion detected → photo arrives on WhatsApp</div>
+      </div>
+      <div class="demo-item">
+        <div class="time">~30 seconds</div>
+        <div class="desc">Gemma's scene description follows as a second message</div>
+      </div>
+      <div class="demo-item">
+        <div class="time">~15 seconds</div>
+        <div class="desc">"Who's at the door?" → live photo response</div>
+      </div>
+      <div class="demo-item">
+        <div class="time">Retrospective</div>
+        <div class="desc">"What happened in the last hour?" → Gemma reads the event log and replies</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider" />
+
+  <section class="story">
+    <div class="story-label">Origin</div>
+    <blockquote>
+      "The gate was locked for over a year. We had no way to know who was coming."
+    </blockquote>
+    <p>
+      A bakery manager near Yabatech Polytechnic in Lagos described the daily fear of not knowing
+      who was outside during a period of repeated gun violence in the area. Armed forces guard the
+      school. Civilians around it have nothing.
+    </p>
+    <p>
+      The Raspberry Pi powering Gateman-AI came back from Austin, Texas in my luggage. I spent
+      two years at Eagle Eye Networks working with enterprise security camera infrastructure and
+      saw exactly what it could do and who it could not reach.
+    </p>
+    <p>
+      Back in Lagos, that gap was impossible to ignore.
+    </p>
+  </section>
+
+  <hr class="divider" />
+
+  <footer class="footer">
+    <div>
+      <div class="footer-left">WTMG<span>.</span>LABS</div>
+      <div class="footer-sub">Watimagbo — "You should have heard about us by now."</div>
+    </div>
+    <div class="footer-right">
+      <a href="https://github.com/Ademiluyi/gatemanai" target="_blank">GitHub</a>
+      <a href="mailto:hello@wtmglabs.com">Contact</a>
+    </div>
+  </footer>
+
+</body>
+</html>
