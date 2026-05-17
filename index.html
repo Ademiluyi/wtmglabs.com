@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WTMG Labs — Physical AI for the Global Majority</title>
-  <meta name="description" content="Physical AI for environmental awareness, delivered through WhatsApp. Built for the world big tech forgot." />
+  <title>WTMG Labs — Physical AI for Africa</title>
+  <meta name="description" content="Physical AI for Africa. Built from Lagos. WTMG Labs builds practical physical AI systems for the Global Majority." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --black: #f5f0e8;
-      --white: #1a1a1a;
-      --orange: #a8873a;
-      --orange-dim: #8a6d2a;
-      --grey: #e8dfcd;
-      --grey-light: #c9bfa8;
-      --text-muted: #6a6358;
+      --black: #0a0a0a;
+      --white: #f5f0e8;
+      --gold: #c9a84c;
+      --gold-dim: #a8873a;
+      --grey: #2a2a2a;
+      --grey-light: #3d3d3d;
+      --text-muted: #999;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -30,25 +30,27 @@
       overflow-x: hidden;
     }
 
-    body::before {
+    /* GRAIN */
+    body::after {
       content: '';
       position: fixed;
       inset: 0;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 999;
-      opacity: 0.4;
+      opacity: 0.35;
     }
 
+    /* NAV */
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 2rem 3rem;
-      border-bottom: 1px solid var(--grey);
-      position: sticky;
+      padding: 1.8rem 3rem;
+      position: absolute;
       top: 0;
-      background: var(--black);
+      left: 0;
+      right: 0;
       z-index: 100;
     }
 
@@ -56,236 +58,337 @@
       font-family: 'Syne', sans-serif;
       font-weight: 800;
       font-size: 1.1rem;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.08em;
       color: var(--white);
       text-decoration: none;
     }
 
-    .logo span { color: var(--orange); }
+    .logo span { color: var(--gold); }
 
-    nav a.cta {
-      font-size: 0.8rem;
-      color: var(--orange);
+    nav a.nav-link {
+      font-size: 0.75rem;
+      color: var(--white);
       text-decoration: none;
-      border: 1px solid var(--orange);
-      padding: 0.5rem 1rem;
-      transition: all 0.2s;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
+      opacity: 0.7;
+      transition: opacity 0.2s;
     }
 
-    nav a.cta:hover { background: var(--orange); color: var(--black); }
+    nav a.nav-link:hover { opacity: 1; }
 
+    /* HERO */
     .hero {
-      padding: 6rem 3rem 4rem;
-      max-width: 900px;
-      animation: fadeUp 0.8s ease both;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 3rem 5rem;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('lagos.jpg');
+      background-image: image-set(url('lagos.webp') type('image/webp'), url('lagos.jpg') type('image/jpeg'));
+      background-size: cover;
+      background-position: center top;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10,10,10,0.3) 0%,
+        rgba(10,10,10,0.5) 40%,
+        rgba(10,10,10,0.92) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      animation: fadeUp 1s ease both;
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
+      from { opacity: 0; transform: translateY(32px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .tag {
+    .hero-tag {
       display: inline-block;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--orange);
-      border: 1px solid var(--orange-dim);
-      padding: 0.3rem 0.7rem;
-      margin-bottom: 2rem;
+      color: var(--gold);
+      border: 1px solid rgba(201,168,76,0.4);
+      padding: 0.3rem 0.8rem;
+      margin-bottom: 1.8rem;
     }
 
     h1 {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
-      font-size: clamp(2.4rem, 6vw, 4.5rem);
-      line-height: 1.05;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      line-height: 1.0;
       letter-spacing: -0.02em;
       margin-bottom: 1.5rem;
-    }
-
-    h1 em { font-style: normal; color: var(--orange); }
-
-    .hero p {
-      font-size: 1rem;
-      color: var(--text-muted);
-      max-width: 560px;
-      margin-bottom: 2.5rem;
-      line-height: 1.8;
-    }
-
-    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
-
-    .btn-primary {
-      background: var(--orange);
-      color: var(--black);
-      padding: 0.8rem 1.8rem;
-      text-decoration: none;
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 0.9rem;
-      letter-spacing: 0.05em;
-      transition: background 0.2s;
-    }
-
-    .btn-primary:hover { background: var(--orange-dim); }
-
-    .btn-secondary {
       color: var(--white);
-      padding: 0.8rem 1.8rem;
-      text-decoration: none;
-      font-size: 0.85rem;
-      border: 1px solid var(--grey-light);
-      transition: border-color 0.2s;
     }
 
-    .btn-secondary:hover { border-color: var(--white); }
-
-    .divider { border: none; border-top: 1px solid var(--grey); margin: 0 3rem; }
-
-    .product {
-      padding: 5rem 3rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      max-width: 1100px;
-      animation: fadeUp 1s ease 0.2s both;
+    h1 em {
+      font-style: normal;
+      color: var(--gold);
     }
 
-    .product-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 1rem;
-    }
-
-    .product h2 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 700;
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-
-    .product p {
-      color: var(--text-muted);
+    .hero-sub {
+      font-size: 0.95rem;
+      color: rgba(245,240,232,0.65);
+      max-width: 520px;
       line-height: 1.8;
-      margin-bottom: 1rem;
-      font-size: 0.9rem;
+      margin-bottom: 2.5rem;
     }
 
-    .feature-list { list-style: none; margin-top: 1.5rem; }
-
-    .feature-list li {
-      padding: 0.6rem 0;
-      border-bottom: 1px solid var(--grey);
-      font-size: 0.85rem;
-      display: flex;
-      align-items: flex-start;
-      gap: 0.8rem;
-      color: var(--text-muted);
+    .hero-cta {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold-dim);
+      padding-bottom: 0.2rem;
+      transition: color 0.2s;
     }
 
-    .feature-list li::before { content: '→'; color: var(--orange); flex-shrink: 0; }
+    .hero-cta:hover { color: var(--white); border-color: var(--white); }
 
-    .demo-block {
+    /* MISSION STRIP */
+    .mission {
       background: var(--grey);
-      padding: 2rem;
-      border-left: 3px solid var(--orange);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      border-top: 1px solid var(--grey-light);
+      border-bottom: 1px solid var(--grey-light);
     }
 
-    .demo-label {
-      font-size: 0.7rem;
+    .mission-item .m-label {
+      font-size: 0.65rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--orange);
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+
+    .mission-item p {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* PRODUCT SECTION */
+    .products {
+      padding: 6rem 3rem;
+    }
+
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 3rem;
+    }
+
+    .product-card {
+      border: 1px solid var(--grey);
+      padding: 2.5rem;
+      max-width: 680px;
+      transition: border-color 0.3s;
+      text-decoration: none;
+      display: block;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: var(--gold);
+      transform: scaleY(0);
+      transform-origin: bottom;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover { border-color: var(--gold-dim); }
+    .product-card:hover::before { transform: scaleY(1); }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
       margin-bottom: 1.2rem;
     }
 
-    .demo-item { margin-bottom: 1.2rem; font-size: 0.82rem; line-height: 1.7; }
-    .demo-item .time { color: var(--orange); font-weight: 500; }
-    .demo-item .desc { color: var(--text-muted); }
-
-    .story {
-      padding: 5rem 3rem;
-      max-width: 680px;
-      animation: fadeUp 1s ease 0.4s both;
+    .card-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: var(--white);
     }
 
-    .story-label {
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
+    .card-badge {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
+      color: var(--gold);
+      border: 1px solid var(--gold-dim);
+      padding: 0.25rem 0.6rem;
+      white-space: nowrap;
+    }
+
+    .card-desc {
+      font-size: 0.88rem;
       color: var(--text-muted);
+      line-height: 1.8;
       margin-bottom: 1.5rem;
+    }
+
+    .card-features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .card-features li {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--grey);
+      display: flex;
+      gap: 0.7rem;
+      align-items: flex-start;
+    }
+
+    .card-features li::before {
+      content: '→';
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .card-link {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.2s;
+    }
+
+    .product-card:hover .card-link { gap: 0.9rem; }
+
+    /* STORY */
+    .story {
+      padding: 0 3rem 6rem;
+      max-width: 640px;
     }
 
     .story blockquote {
       font-family: 'Syne', sans-serif;
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-weight: 700;
-      line-height: 1.4;
+      line-height: 1.5;
       color: var(--white);
-      margin-bottom: 1.5rem;
-      border-left: 3px solid var(--orange);
+      border-left: 3px solid var(--gold);
       padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
     }
 
     .story p {
+      font-size: 0.85rem;
       color: var(--text-muted);
-      font-size: 0.9rem;
-      line-height: 1.8;
-      margin-bottom: 1rem;
+      line-height: 1.9;
+      margin-bottom: 0.8rem;
     }
 
-    .footer {
-      padding: 3rem;
+    /* FOOTER */
+    footer {
       border-top: 1px solid var(--grey);
+      padding: 2.5rem 3rem;
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-end;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 1.5rem;
     }
 
-    .footer-left {
+    .footer-logo {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
       font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.3rem;
+    }
+
+    .footer-logo span { color: var(--gold); }
+
+    .footer-meaning {
+      font-size: 0.72rem;
+      color: var(--grey-light);
       letter-spacing: 0.05em;
     }
 
-    .footer-left span { color: var(--orange); }
-
-    .footer-sub {
-      font-size: 0.75rem;
-      color: var(--grey-light);
-      margin-top: 0.4rem;
+    .footer-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.5rem;
     }
 
-    .footer-right { display: flex; gap: 1.5rem; }
+    .footer-links {
+      display: flex;
+      gap: 1.5rem;
+    }
 
-    .footer-right a {
+    .footer-links a {
+      font-size: 0.75rem;
       color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.8rem;
       letter-spacing: 0.05em;
       transition: color 0.2s;
     }
 
-    .footer-right a:hover { color: var(--orange); }
+    .footer-links a:hover { color: var(--gold); }
 
+    .photo-credit {
+      font-size: 0.65rem;
+      color: #555;
+      letter-spacing: 0.05em;
+    }
+
+    /* RESPONSIVE */
     @media (max-width: 700px) {
       nav { padding: 1.5rem; }
-      .hero { padding: 4rem 1.5rem 3rem; }
-      .product { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
-      .story { padding: 3rem 1.5rem; }
-      .footer { padding: 2rem 1.5rem; }
-      .divider { margin: 0 1.5rem; }
+      .hero { padding: 0 1.5rem 4rem; }
+      .mission { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
+      .products { padding: 4rem 1.5rem; }
+      .story { padding: 0 1.5rem 4rem; }
+      footer { padding: 2rem 1.5rem; }
+      .footer-right { align-items: flex-start; }
     }
   </style>
 </head>
@@ -293,99 +396,96 @@
 
   <nav>
     <a class="logo" href="/">WTMG<span>.</span>LABS</a>
-    <a class="cta" href="https://github.com/Ademiluyi/gatemanai" target="_blank">GitHub →</a>
+    <a class="nav-link" href="mailto:hello@wtmglabs.com">Contact</a>
   </nav>
 
+  <!-- HERO -->
   <section class="hero">
-    <div class="tag">Physical AI — Lagos, Nigeria</div>
-    <h1>The door knows.<br /><em>WhatsApp tells you.</em></h1>
-    <p>
-      Physical AI for environmental awareness, delivered through WhatsApp.
-      Built for the communities that existing smart-home technology was never designed to serve.
-    </p>
-    <div class="hero-actions">
-      <a class="btn-primary" href="https://github.com/Ademiluyi/gatemanai" target="_blank">View on GitHub</a>
-      <a class="btn-secondary" href="mailto:hello@wtmglabs.com">Get in touch</a>
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-tag">Lagos, Nigeria — Building Physical AI</div>
+      <h1>Physical AI for Africa.<br /><em>Built from Lagos.</em></h1>
+      <p class="hero-sub">
+        The Global Majority deserves physical AI that works within its actual infrastructure —
+        intermittent power, unstable internet, WhatsApp-shaped connectivity, and hardware
+        budgets closer to $50 than $700.
+      </p>
+      <a class="hero-cta" href="#products">See what we're building ↓</a>
     </div>
   </section>
 
-  <hr class="divider" />
+  <!-- MISSION STRIP -->
+  <div class="mission">
+    <div class="mission-item">
+      <div class="m-label">The problem</div>
+      <p>Physical AI is designed for Western infrastructure. It assumes broadband, flagship hardware, and cloud subscriptions that don't work in most of the world.</p>
+    </div>
+    <div class="mission-item">
+      <div class="m-label">Our approach</div>
+      <p>Build on infrastructure that already exists — WhatsApp, low-cost hardware, local AI inference. Start in Lagos. Expand across Africa and the Global Majority.</p>
+    </div>
+    <div class="mission-item">
+      <div class="m-label">The opportunity</div>
+      <p>8.8M Nigerian households are adopting smart security by 2029. No affordable, locally-built AI layer exists yet. That gap is where we build.</p>
+    </div>
+  </div>
 
-  <section class="product">
-    <div>
-      <div class="product-label">First product</div>
-      <h2>Gateman-AI</h2>
-      <p>
+  <!-- PRODUCTS -->
+  <section class="products" id="products">
+    <div class="section-label">First product</div>
+    <a class="product-card" href="https://github.com/Ademiluyi/Gateman-AI" target="_blank">
+      <div class="card-top">
+        <div class="card-name">Gateman-AI</div>
+        <div class="card-badge">Open Source</div>
+      </div>
+      <p class="card-desc">
         A WhatsApp-native security and accessibility agent for homes and small businesses.
-        Runs on a $35 Raspberry Pi or any existing RTSP camera. All AI inference stays local.
-        Nothing leaves your network.
+        Connects a camera at your entrance to WhatsApp — no custom app, no cloud subscription,
+        no per-message fees. Runs on a $35 Raspberry Pi or any existing RTSP camera.
+        All AI inference stays local. Nothing leaves your network.
       </p>
-      <p>
-        No custom app. No cloud subscription. No per-message fees.
-        Designed for unreliable power, unstable internet, and tight hardware budgets.
-      </p>
-      <ul class="feature-list">
+      <ul class="card-features">
         <li>Instant WhatsApp notification with photo and AI scene description</li>
         <li>Ask "who's at the gate?" and get a live photo back</li>
         <li>Ask "what happened in the last hour?" and Gemma reads the event log</li>
         <li>Works with existing Hikvision, Dahua, or any RTSP camera</li>
-        <li>Runs entirely on your local network — private by design</li>
+        <li>Designed for unreliable power, unstable internet, tight hardware budgets</li>
       </ul>
-    </div>
-
-    <div class="demo-block">
-      <div class="demo-label">Live demo timing</div>
-      <div class="demo-item">
-        <div class="time">~5 seconds</div>
-        <div class="desc">Motion detected → photo arrives on WhatsApp</div>
-      </div>
-      <div class="demo-item">
-        <div class="time">~30 seconds</div>
-        <div class="desc">Gemma's scene description follows as a second message</div>
-      </div>
-      <div class="demo-item">
-        <div class="time">~15 seconds</div>
-        <div class="desc">"Who's at the door?" → live photo response</div>
-      </div>
-      <div class="demo-item">
-        <div class="time">Retrospective</div>
-        <div class="desc">"What happened in the last hour?" → Gemma reads the event log and replies</div>
-      </div>
-    </div>
+      <div class="card-link">View on GitHub →</div>
+    </a>
   </section>
 
-  <hr class="divider" />
-
+  <!-- STORY -->
   <section class="story">
-    <div class="story-label">Origin</div>
     <blockquote>
       "The gate was locked for over a year. We had no way to know who was coming."
     </blockquote>
     <p>
-      A bakery manager near Yabatech Polytechnic in Lagos described the daily fear of not knowing
-      who was outside during a period of repeated gun violence in the area. Armed forces guard the
-      school. Civilians around it have nothing.
+      A bakery manager near Yabatech Polytechnic in Lagos described the daily fear of not
+      knowing who was outside during a period of repeated gun violence in the area.
+      Armed forces guard the school. Civilians around it have nothing.
     </p>
     <p>
-      The Raspberry Pi powering Gateman-AI came back from Austin, Texas in my luggage. I spent
-      two years at Eagle Eye Networks working with enterprise security camera infrastructure and
-      saw exactly what it could do and who it could not reach.
+      The Raspberry Pi powering Gateman-AI came back from Austin, Texas in my luggage.
+      Two years at Eagle Eye Networks working with enterprise security camera infrastructure
+      showed me exactly what it could do — and exactly who it could not reach.
     </p>
-    <p>
-      Back in Lagos, that gap was impossible to ignore.
-    </p>
+    <p>Back in Lagos, that gap was impossible to ignore.</p>
   </section>
 
-  <hr class="divider" />
-
-  <footer class="footer">
-    <div>
-      <div class="footer-left">WTMG<span>.</span>LABS</div>
-      <div class="footer-sub">Watimagbo — "You should have heard about us by now."</div>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-left">
+      <div class="footer-logo">WTMG<span>.</span>LABS</div>
+      <div class="footer-meaning">Watimagbo — "You should have heard about us by now."</div>
     </div>
     <div class="footer-right">
-      <a href="https://github.com/Ademiluyi/gatemanai" target="_blank">GitHub</a>
-      <a href="mailto:hello@wtmglabs.com">Contact</a>
+      <div class="footer-links">
+        <a href="https://github.com/Ademiluyi/Gateman-AI" target="_blank">GitHub</a>
+        <a href="mailto:hello@wtmglabs.com">Contact</a>
+      </div>
+      <div class="photo-credit">Photo: Opeyemi Adisa / Unsplash</div>
     </div>
   </footer>
 
