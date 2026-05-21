@@ -6,7 +6,7 @@
   <title>WTMG Labs — Physical AI for Africa</title>
   <meta name="description" content="Physical AI for Africa. Built from Lagos. WTMG Labs builds practical physical AI systems for the Global Majority." />
 
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230a0a0a'/%3E%3Ctext x='32' y='42' font-family='Syne, sans-serif' font-size='28' font-weight='800' text-anchor='middle' fill='%23c9a84c'%3EW%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230a0a0a'/%3E%3Ctext x='32' y='40' font-family='IBM Plex Mono, monospace' font-size='18' font-weight='500' letter-spacing='1.5' text-anchor='middle' fill='%23ffffff'%3EWTMG%3C/text%3E%3C/svg%3E" />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://wtmglabs.com/" />
@@ -21,7 +21,7 @@
   <meta name="twitter:image" content="https://wtmglabs.com/og.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg: #fafaf7;
@@ -61,31 +61,46 @@
 
     /* NAV */
     nav {
+      position: relative;
+      z-index: 1;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 1.8rem 3rem;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
     }
 
     .logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 1.1rem;
-      letter-spacing: 0.08em;
-      color: var(--on-hero);
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      white-space: nowrap;
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 500;
+      font-size: 1.5rem;
+      letter-spacing: 0.15em;
+      color: var(--ink);
       text-decoration: none;
     }
 
-    .logo span { color: var(--gold); }
+    .logo .labs {
+      font-size: 0.95rem;
+    }
+
+    .logo .stamp {
+      border: 1px solid currentColor;
+      padding: 0.25rem 0.55rem;
+      letter-spacing: 0.2em;
+    }
+
+    .logo .labs {
+      opacity: 0.7;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
 
     nav a.nav-link {
       font-size: 0.75rem;
-      color: var(--on-hero);
+      color: var(--ink);
       text-decoration: none;
       letter-spacing: 0.1em;
       text-transform: uppercase;
@@ -95,63 +110,51 @@
 
     nav a.nav-link:hover { opacity: 1; }
 
-    /* HERO */
-    .hero {
+    /* HERO — centered editorial layout */
+    .hero-tag-wrap {
       position: relative;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 6rem 3rem 5rem;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background-image: url('lagos.jpg');
-      background-image: image-set(url('lagos.webp') type('image/webp'), url('lagos.jpg') type('image/jpeg'));
-      background-size: cover;
-      background-position: center top;
-      z-index: 0;
-    }
-
-    .hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(10,10,10,0.35);
       z-index: 1;
+      text-align: center;
+      padding: 2rem 1.5rem 0.75rem;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 800px;
+    .hero {
+      padding: clamp(2rem, 26vw, 11rem) 3rem 5rem;
       animation: fadeUp 1s ease both;
     }
 
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(32px); }
+      from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-content {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
     }
 
     .hero-tag {
       display: inline-block;
+      max-width: 100%;
       font-size: 0.65rem;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--gold);
-      border: 1px solid rgba(201,168,76,0.4);
+      color: var(--gold-dim);
+      background: var(--bg);
+      border: 1px solid rgba(168,135,58,0.4);
       padding: 0.3rem 0.8rem;
       margin-bottom: 1.8rem;
+      white-space: normal;
+      word-break: break-word;
     }
 
     h1 {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: clamp(2.8rem, 7vw, 5.5rem);
-      line-height: 1.0;
-      letter-spacing: -0.02em;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
       margin-bottom: 1.5rem;
       color: var(--on-hero);
     }
@@ -162,11 +165,11 @@
     }
 
     .hero-sub {
-      font-size: 0.95rem;
-      color: rgba(255,255,255,0.78);
-      max-width: 520px;
-      line-height: 1.8;
-      margin-bottom: 2.5rem;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.7;
     }
 
     .hero-cta {
@@ -174,14 +177,42 @@
       font-size: 0.75rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-dim);
       text-decoration: none;
       border-bottom: 1px solid var(--gold-dim);
       padding-bottom: 0.2rem;
       transition: color 0.2s;
     }
 
-    .hero-cta:hover { color: var(--on-hero); border-color: var(--on-hero); }
+    .hero-cta:hover { color: var(--ink); border-color: var(--ink); }
+
+    .hero-image {
+      max-width: 1040px;
+      margin: clamp(-30rem, calc(-11vw - 20rem), -10rem) auto 0;
+      padding: 0 3rem;
+      position: relative;
+      z-index: -1;
+    }
+
+    .hero-cta-wrap {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .hero-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 18px;
+      filter: brightness(0.4);
+    }
+
+    @media (max-width: 950px) {
+      .hero-image img { aspect-ratio: 4 / 3; }
+    }
 
     /* MISSION STRIP */
     .mission {
@@ -403,7 +434,9 @@
 
     /* FOOTER */
     footer {
-      border-top: 1px solid var(--rule-strong);
+      background: #000;
+      color: #fff;
+      border-top: 1px solid #000;
       padding: 2.5rem 3rem;
       display: flex;
       justify-content: space-between;
@@ -412,15 +445,34 @@
       gap: 1.5rem;
     }
 
+    footer .footer-meaning,
+    footer .footer-links a {
+      color: rgba(255,255,255,0.6);
+    }
+
     .footer-logo {
-      font-family: 'Syne', sans-serif;
-      font-weight: 800;
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-weight: 500;
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
       margin-bottom: 0.3rem;
     }
 
-    .footer-logo span { color: var(--gold); }
+    .footer-logo .stamp {
+      border: 1px solid currentColor;
+      padding: 0.2rem 0.5rem;
+      letter-spacing: 0.2em;
+    }
+
+    .footer-logo .labs {
+      font-size: 0.65rem;
+      opacity: 0.7;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
 
     .footer-meaning {
       font-size: 0.72rem;
@@ -450,16 +502,12 @@
 
     .footer-links a:hover { color: var(--gold); }
 
-    .photo-credit {
-      font-size: 0.65rem;
-      color: #a89e8c;
-      letter-spacing: 0.05em;
-    }
-
     /* RESPONSIVE */
     @media (max-width: 700px) {
       nav { padding: 1.5rem; }
-      .hero { padding: 5rem 1.5rem 4rem; }
+      .hero { padding: 2rem 1.5rem 3rem; }
+      .hero-image { padding: 0 1.5rem; margin-top: 2.5rem; }
+      .hero-image img { aspect-ratio: 4 / 3; }
       .mission { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
       .vision { padding: 4rem 1.5rem 2rem; }
       .products { padding: 2rem 1.5rem 4rem; }
@@ -472,22 +520,31 @@
 <body>
 
   <nav>
-    <a class="logo" href="/">WTMG <span>L</span>abs</a>
+    <a class="logo" href="/"><span class="stamp">WTMG</span><span class="labs">Labs</span></a>
     <a class="nav-link" href="mailto:aaademiluyi99@gmail.com">Contact</a>
   </nav>
 
+  <div class="hero-tag-wrap">
+    <div class="hero-tag">Lagos, Nigeria — Building Physical AI</div>
+  </div>
+
   <!-- HERO -->
   <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="hero-tag">Lagos, Nigeria — Building Physical AI</div>
       <h1>Physical AI for Africa.<br /><em>Built from Lagos.</em></h1>
       <p class="hero-sub">
         Building the infrastructure layer for Physical AI in the Global Majority,
         designed from the start for the power, bandwidth, and hardware realities the
         industry's defaults assume away. What works here makes AI work everywhere.
       </p>
+    </div>
+    <div class="hero-image">
+      <picture>
+        <source srcset="lagos.webp" type="image/webp" />
+        <img src="lagos.jpg" alt="" />
+      </picture>
+    </div>
+    <div class="hero-cta-wrap">
       <a class="hero-cta" href="#products">See what we're building ↓</a>
     </div>
   </section>
@@ -504,7 +561,7 @@
     </div>
     <div class="mission-item">
       <div class="m-label">The horizon</div>
-      <p>Each deployment, with consent, produces real-world vision-language data from environments almost entirely missing from current training sets: the infrastructure layer for physical AI in emerging markets.</p>
+      <p>Each deployment, with consent, produces real-world data from environments almost entirely missing from current training sets: the infrastructure layer for physical AI in emerging markets.</p>
     </div>
   </div>
 
@@ -546,14 +603,14 @@
       <p class="card-desc">
         A WhatsApp-native security and accessibility agent for homes and small businesses.
         Connects a camera in your environment to WhatsApp: no custom app to install, no
-        separate cloud storage subscription. Runs on a $35 Raspberry Pi or any existing
-        RTSP camera. All AI inference stays local. Nothing leaves your network.
+        separate cloud storage subscription. Runs on a single Raspberry Pi alongside
+        any existing RTSP camera. All AI inference stays local. Nothing leaves your network.
       </p>
       <ul class="card-features">
         <li>Instant WhatsApp notification with photo and AI scene description</li>
         <li>Ask "who's at the gate?" and get a live photo back</li>
         <li>Ask "what happened in the last hour?" and Gemma reads the event log</li>
-        <li>Works with existing Hikvision, Dahua, or any RTSP camera</li>
+        <li>Drop-in for existing IP cameras via RTSP — no new hardware required</li>
         <li>Designed for unreliable power, unstable internet, tight hardware budgets</li>
       </ul>
       <div class="card-link">View on GitHub →</div>
@@ -581,7 +638,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="footer-left">
-      <div class="footer-logo">WTMG <span>L</span>abs</div>
+      <div class="footer-logo"><span class="stamp">WTMG</span><span class="labs">Labs</span></div>
       <div class="footer-meaning">Physical AI that meets Africa where it is.</div>
     </div>
     <div class="footer-right">
@@ -589,7 +646,6 @@
         <a href="https://github.com/Ademiluyi/Gateman-AI" target="_blank">GitHub</a>
         <a href="mailto:aaademiluyi99@gmail.com">Contact</a>
       </div>
-      <div class="photo-credit">Photo: Ben Iwara / Unsplash</div>
     </div>
   </footer>
 
