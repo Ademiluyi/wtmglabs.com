@@ -504,16 +504,85 @@
 
     /* RESPONSIVE */
     @media (max-width: 700px) {
-      nav { padding: 1.5rem; }
-      .hero { padding: 2rem 1.5rem 3rem; }
-      .hero-image { padding: 0 1.5rem; margin-top: 2.5rem; }
-      .hero-image img { aspect-ratio: 4 / 3; }
-      .mission { grid-template-columns: 1fr; padding: 2rem 1.5rem; }
-      .vision { padding: 4rem 1.5rem 2rem; }
+      nav { padding: 1.25rem 1.5rem; }
+      .logo { font-size: 1.2rem; }
+      .logo .labs { font-size: 0.75rem; }
+
+      .hero-tag-wrap { padding: 1.25rem 1rem 0.5rem; }
+      .hero-tag { font-size: 0.6rem; padding: 0.3rem 0.7rem; }
+
+      .hero {
+        position: relative;
+        padding: 0;
+        min-height: 78vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .hero-content {
+        max-width: 100%;
+        position: relative;
+        z-index: 2;
+        padding: 4rem 1.5rem 1.5rem;
+      }
+      h1 {
+        font-size: clamp(2rem, 8vw, 2.6rem);
+        margin-bottom: 1.2rem;
+      }
+      .hero-sub {
+        font-size: 0.95rem;
+        margin-bottom: 0;
+      }
+
+      .hero-image {
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        padding: 0;
+        z-index: 0;
+        max-width: none;
+      }
+      .hero-image img {
+        width: 100%;
+        height: 100%;
+        aspect-ratio: auto;
+        border-radius: 0;
+        filter: brightness(0.35);
+        object-position: center center;
+      }
+      .hero-cta-wrap {
+        position: relative;
+        z-index: 2;
+        margin-top: 0;
+        padding: 0 1.5rem 3rem;
+      }
+      .hero-cta { color: var(--gold); border-color: var(--gold); }
+      .hero-cta:hover { color: #fff; border-color: #fff; }
+
+      .mission { grid-template-columns: 1fr; padding: 2rem 1.5rem; gap: 1.75rem; }
+
+      .vision { padding: 3.5rem 1.5rem 1.5rem; }
+      .vision blockquote { padding-left: 1.25rem; }
+      .vision cite { padding-left: 1.35rem; margin-bottom: 2rem; }
+      .vision-kicker { padding-top: 1.4rem; }
+
       .products { padding: 2rem 1.5rem 4rem; }
-      .story { padding: 0 1.5rem 4rem; }
-      footer { padding: 2rem 1.5rem; }
-      .footer-right { align-items: flex-start; }
+      .section-label { margin-bottom: 1.75rem; }
+      .product-card { padding: 1.75rem 1.5rem; }
+      .card-top { flex-direction: column; gap: 0.75rem; align-items: flex-start; margin-bottom: 1rem; }
+      .card-name { font-size: 1.4rem; }
+
+      .story { padding: 0 1.5rem 4rem; max-width: none; }
+      .story blockquote { padding-left: 1.25rem; font-size: 1.05rem; }
+
+      footer {
+        padding: 2rem 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .footer-right { align-items: flex-start; width: 100%; }
+      .footer-links { flex-wrap: wrap; }
     }
   </style>
 </head>
@@ -540,8 +609,8 @@
     </div>
     <div class="hero-image">
       <picture>
-        <source srcset="lagos.webp" type="image/webp" />
-        <img src="lagos.jpg" alt="" />
+        <source srcset="https://wtmglabs.com/lagos.webp" type="image/webp" />
+        <img src="https://wtmglabs.com/lagos.jpg" alt="" />
       </picture>
     </div>
     <div class="hero-cta-wrap">
