@@ -1,0 +1,5 @@
+# gstack tooling state (browser logs, audit, session)
+.gstack/
+
+# macOS
+.DS_Store

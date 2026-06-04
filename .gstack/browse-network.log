@@ -1,8 +1,0 @@
-[2026-06-04T19:03:09.060Z] GET http://localhost:8099/story.html → 200 (81ms, 7602B)
-[2026-06-04T19:03:09.151Z] GET https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap → pending (?ms, ?B)
-[2026-06-04T19:03:09.151Z] GET http://localhost:8099/styles.css → 200 (14ms, 30102B)
-[2026-06-04T19:03:09.151Z] GET http://localhost:8099/assets/bakery-poster.jpg → 200 (16ms, 724023B)
-[2026-06-04T19:03:09.175Z] GET http://localhost:8099/assets/bakery-demo.mp4 → 200 (8ms, ?B)
-[2026-06-04T19:03:09.970Z] GET https://fonts.gstatic.com/s/hankengrotesk/v12/ieVn2YZDLWuGJpnzaiwFXS9tYtpd59CxCis4.woff2 → pending (?ms, ?B)
-[2026-06-04T19:03:09.970Z] GET https://fonts.gstatic.com/s/ibmplexmono/v20/-F63fjptAgt5VM-kVkqdyU8n1i8q131nj-o.woff2 → pending (?ms, ?B)
-[2026-06-04T19:03:09.971Z] GET https://fonts.gstatic.com/s/ibmplexmono/v20/-F6qfjptAgt5VM-kVkqdyU8n3twJwlBFgsAXHNk.woff2 → pending (?ms, ?B)
