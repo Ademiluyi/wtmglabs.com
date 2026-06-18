@@ -38,6 +38,11 @@
   --accent-soft:   rgba(168,125,28,0.12);
   --accent-line:   rgba(168,125,28,0.42);
   --accent-on-dark:#e0bb64;
+
+  /* green — Nigerian flag accent, used sparingly for place + live signals */
+  --green:         #0a8a4d;
+  --green-on-dark: #2eb56e;
+  --green-soft:    rgba(10,138,77,0.12);
 }
 
 :root[data-accent="gold"] {
@@ -107,6 +112,11 @@ a { color: inherit; text-decoration: none; }
   gap: 0.7em;
 }
 .eyebrow .idx { color: var(--accent); }
+/* Lagos location beacon — flag green */
+.hero-top .eyebrow .idx {
+  color: var(--green);
+  text-shadow: 0 0 10px color-mix(in srgb, var(--green) 45%, transparent);
+}
 .eyebrow .tick {
   width: 1.4em; height: 1px; background: var(--accent-line); display: inline-block;
 }
@@ -276,7 +286,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight
   text-transform: uppercase; color: rgba(255,255,255,0.82);
   display: flex; align-items: center; gap: 0.6rem;
 }
-.hero-figure .cap .geo { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-on-dark); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-on-dark) 22%, transparent); }
+.hero-figure .cap .geo { width: 6px; height: 6px; border-radius: 50%; background: var(--green-on-dark); box-shadow: 0 0 0 4px color-mix(in srgb, var(--green-on-dark) 22%, transparent); }
 .hero-figure .coord {
   position: absolute; right: 1.4rem; bottom: 1.2rem; z-index: 2;
   font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.12em;
@@ -415,7 +425,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight
 .demo-id { line-height: 1.25; }
 .demo-id .name { font-weight: 600; font-size: 0.92rem; color: var(--on-dark); }
 .demo-id .status { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.06em; color: var(--on-dark-muted); display: flex; align-items: center; gap: 0.4rem; white-space: nowrap; }
-.demo-id .status .live { width: 6px; height: 6px; border-radius: 50%; background: #3fb950; box-shadow: 0 0 0 3px rgba(63,185,80,0.18); }
+.demo-id .status .live { width: 6px; height: 6px; border-radius: 50%; background: var(--green-on-dark); box-shadow: 0 0 0 3px var(--green-soft); }
 .demo-head .lock { margin-left: auto; font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.08em; color: var(--on-dark-muted); border: 1px solid var(--on-dark-line); border-radius: 6px; padding: 0.25rem 0.5rem; white-space: nowrap; }
 
 .demo-body {
