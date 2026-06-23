@@ -475,13 +475,14 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight
 /* ---------- STORY ---------- */
 .story { padding-block: clamp(4.5rem, 8vw, 8rem); }
 .story-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(2.5rem, 6vw, 6rem); align-items: start; }
-.story blockquote {
+.story blockquote, .story-grid blockquote {
   font-family: var(--font-display); font-weight: var(--display-weight);
   font-size: clamp(1.5rem, 3vw, 2.3rem); line-height: 1.2; letter-spacing: var(--display-track);
   color: var(--ink);
 }
-:root[data-display="serif"] .story blockquote { font-style: italic; }
-.story .src { display: block; margin-top: 1.4rem; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+:root[data-display="serif"] .story blockquote,
+:root[data-display="serif"] .story-grid blockquote { font-style: italic; }
+.story .src, .story-grid .src { display: block; margin-top: 1.4rem; font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
 .story-body p { font-size: 1.0rem; line-height: 1.75; color: var(--ink-2); margin-bottom: 1.1rem; }
 .story-body p.last { color: var(--ink); font-weight: 500; }
 .story-lead { font-size: clamp(1.05rem, 1.8vw, 1.25rem); line-height: 1.6; color: var(--ink-2); margin-bottom: 1.6rem; }
@@ -525,6 +526,53 @@ body[data-motion="off"] .reveal { opacity: 1; transform: none; transition: none;
   html { scroll-behavior: auto; }
   .typing span { animation: none; }
 }
+
+/* ---------- PRODUCT INTRO ---------- */
+.product-intro { padding-block: clamp(3.5rem, 7vw, 6rem); text-align: center; }
+.product-intro .eyebrow { justify-content: center; margin-bottom: 1.4rem; }
+.product-intro-line {
+  font-family: var(--font-display); font-weight: var(--display-weight);
+  font-size: clamp(1.9rem, 4.6vw, 3.3rem); line-height: 1.08;
+  letter-spacing: var(--display-track); color: var(--ink);
+  max-width: 18ch; margin: 0 auto;
+}
+.product-intro-line .accent { color: var(--accent); }
+.product-intro-cue {
+  display: block; margin-top: 1.8rem; color: var(--muted);
+  font-family: var(--font-mono); font-size: 1.25rem; line-height: 1;
+  animation: introCue 1.9s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) { .product-intro-cue { animation: none; } }
+@keyframes introCue { 0%, 100% { transform: translateY(0); opacity: .45; } 50% { transform: translateY(7px); opacity: 1; } }
+
+/* ---------- WHY SLIDER (Why now / Why we started) ---------- */
+.whyslider { padding-block: clamp(4rem, 8vw, 7.5rem); position: relative; }
+.whyslider-viewport { overflow: hidden; }
+.whyslider-track {
+  display: flex;
+  transition: transform 0.75s cubic-bezier(.5,.02,.2,1);
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) { .whyslider-track { transition: none; } }
+.whyslide { flex: 0 0 100%; min-width: 0; padding: 2px; }
+.whyslider-nav {
+  display: flex; align-items: center; justify-content: center; gap: 1.4rem;
+  margin-top: clamp(2.4rem, 5vw, 3.4rem);
+}
+.why-dots { display: flex; align-items: center; gap: 0.55rem; }
+.why-dot {
+  width: 30px; height: 4px; padding: 0; border: 0; border-radius: 2px;
+  background: var(--line-2); cursor: pointer; transition: background .35s, width .35s;
+}
+.why-dot.is-active { background: var(--accent); width: 50px; }
+.why-arrow {
+  width: 40px; height: 40px; border-radius: 50%; flex: none;
+  border: 1px solid var(--line); background: transparent; color: var(--ink-2);
+  font-family: var(--font-mono); font-size: 1rem; line-height: 1; cursor: pointer;
+  display: grid; place-items: center;
+  transition: border-color .25s, color .25s, background .25s;
+}
+.why-arrow:hover { border-color: var(--accent-line); color: var(--accent); background: var(--accent-soft); }
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 900px) {

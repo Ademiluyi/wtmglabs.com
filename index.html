@@ -62,13 +62,10 @@
       </div>
     </div>
 
-    <figure class="hero-figure reveal">
-      <picture>
-        <source srcset="assets/lagos.webp" type="image/webp" />
-        <img src="assets/lagos.jpg" alt="Lekki-Ikoyi bridge, Lagos, at dusk" />
-      </picture>
-      <figcaption class="cap"><span class="geo"></span> Lekki–Ikoyi Bridge · Lagos</figcaption>
-      <span class="coord">6.4541° N, 3.4316° E</span>
+    <figure class="hero-figure reveal" aria-label="Lekki-Ikoyi Bridge, Lagos">
+      <img src="assets/lagos.jpg" alt="Lekki-Ikoyi Bridge at dusk, Lagos" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      <figcaption class="cap"><span class="geo"></span> Lagos, Nigeria</figcaption>
+      <span class="coord">Lekki · Lagos</span>
     </figure>
   </header>
 
@@ -99,63 +96,49 @@
 
   <div class="wrap"><hr class="section-rule" /></div>
 
-  <!-- VISION -->
-  <section class="vision wrap" id="vision">
-    <div class="vision-grid">
-      <div class="vision-quote reveal">
-        <span class="eyebrow" style="margin-bottom:1.4rem;"><span class="idx">02</span> Why now</span>
-        <blockquote>
-          <span class="qmark">“</span>AI is likely to close the technology divide,<span class="qmark">”</span> offering developing countries a chance to narrow long-standing gaps through its accessibility and abundance.
-        </blockquote>
-        <cite>— Jensen Huang · CEO, NVIDIA</cite>
-      </div>
-      <div class="vision-body reveal">
-        <p class="lead-line">We agree, <em>with a caveat.</em></p>
-        <p>Every prior wave reached Africa assuming infrastructure that wasn't there. AI is the first we can design for those constraints from the start, but the divide only closes if someone builds the layer underneath.</p>
-        <a class="more-link" href="thesis/">Read the thesis <span class="arr">→</span></a>
-      </div>
-    </div>
+  <!-- PRODUCT INTRO -->
+  <section class="product-intro wrap">
+    <span class="eyebrow reveal"><span class="tick"></span> Now shipping</span>
+    <p class="product-intro-line reveal">A look at our first product<span class="accent">.</span></p>
+    <span class="product-intro-cue reveal" aria-hidden="true">↓</span>
   </section>
 
   <!-- PRODUCT (dark) -->
   <section class="product" id="product">
     <div class="wrap">
-      <span class="eyebrow reveal"><span class="idx">03</span><span class="tick"></span> First product</span>
+      <span class="eyebrow reveal"><span class="idx">04</span><span class="tick"></span> First product</span>
 
       <div class="product-head reveal">
         <div class="product-id">
           <h2>Gateman-AI</h2>
         </div>
-        <p class="product-tagline">Chat with your cameras on WhatsApp.</p>
+        <p class="product-tagline">AI that watches your gate, accessible through WhatsApp.</p>
       </div>
 
-      <p class="product-claim reveal">A small box on your premises. AI in the cloud. Retrieval/notification is a conversation on WhatsApp. <span class="accent">Built for the way Lagos actually works.</span></p>
+      <p class="product-claim reveal">A small box on-site. Events, not footage. Answers on WhatsApp. <span class="accent">Built for the way Lagos actually works.</span></p>
 
       <div class="product-grid">
         <div class="product-copy reveal">
           <p class="lede">
-            GatemanAI is a WhatsApp-native security and accessibility agent for homes and small
-            businesses. A local AI watches your camera in real time, turns what it sees into a short
-            description plus a key frame, and saves each one as an event. Surveillance footage stops
-            being gigabytes to scrub through and becomes a conversation: storage drops from gigabytes
-            a day to kilobytes, and the answer arrives as a WhatsApp message.
+            A WhatsApp-native AI that watches your gate. A small box on-site plugs into the cameras
+            you already have and turns a passive CCTV feed into an attentive assistant — instead of
+            hours of footage nobody watches, you get <em>events</em>, described in plain language and
+            answerable like a conversation.
           </p>
           <ul class="feature-list">
-            <li><span class="fnum">→</span><span>Instant alert with a photo and an AI scene description the moment something happens</span></li>
-            <li><span class="fnum">→</span><span>Ask <em>"who's at the gate?"</em> and get a live photo back in seconds</span></li>
-            <li><span class="fnum">→</span><span>Ask <em>"what happened in the last hour?"</em> and the model reads back the event log</span></li>
-            <li><span class="fnum">→</span><span>Every event kept as text and a key frame, not raw footage, so a full day fits in kilobytes</span></li>
-            <li><span class="fnum">→</span><span>Runs on a low-cost Raspberry Pi with the RTSP cameras you already have, no rip-and-replace</span></li>
-            <li><span class="fnum">→</span><span>Keeps capturing and logging through the power cuts and internet outages that break everything else</span></li>
+            <li><span class="fnum">→</span><span><strong>WhatsApp-native.</strong> No new app to learn — alerts and answers arrive where you already are</span></li>
+            <li><span class="fnum">→</span><span><strong>On-premise, resilient.</strong> The box keeps capturing through power and network cuts, buffering locally and syncing when the connection returns</span></li>
+            <li><span class="fnum">→</span><span><strong>Events, not footage.</strong> Each event is text plus one key frame — <em>~38 KB for a day of activity, not gigabytes of video.</em> Cheap to store, instant to search</span></li>
+            <li><span class="fnum">→</span><span><strong>Conversational, grounded.</strong> Ask in plain language and it answers from what it actually saw, never invented</span></li>
+            <li><span class="fnum">→</span><span><strong>Standing watches.</strong> Tell it once — “alert me if anyone lingers more than two minutes” — and it watches, day and night</span></li>
           </ul>
           <div class="product-actions">
             <a class="btn btn-on-dark" href="mailto:aaademiluyi99@gmail.com">Request a deployment <span class="arr">→</span></a>
-            <a class="btn btn-on-dark-ghost" href="https://github.com/Ademiluyi/Gateman-AI" target="_blank" rel="noopener">MIT snapshot on GitHub</a>
+            <a class="btn btn-on-dark-ghost" href="https://gateman-ai.wtmglabs.com/login" target="_blank" rel="noopener">See the product <span class="arr">→</span></a>
           </div>
-          <p class="repo-note">An earlier, MIT-licensed snapshot of the hackathon build is on GitHub for reference, not the current pilot.</p>
           <div class="spec-rail">
             <div class="spec"><div class="k">Deployment</div><div class="v">On-premise</div></div>
-            <div class="spec"><div class="k">Inference</div><div class="v">Hybrid</div></div>
+            <div class="spec"><div class="k">Storage</div><div class="v">~38 KB / day</div></div>
             <div class="spec"><div class="k">Interface</div><div class="v">WhatsApp</div></div>
           </div>
         </div>
@@ -172,8 +155,8 @@
           </div>
           <div class="demo-body">
             <div class="msg out">
-              <div class="bubble">who's at the gate?</div>
-              <div class="time">6:42 PM</div>
+              <div class="bubble">Who visited today?</div>
+              <div class="time">5:43 PM</div>
             </div>
 
             <div class="msg in">
@@ -184,29 +167,36 @@
                     <span class="corner tl"></span><span class="corner tr"></span>
                     <span class="corner bl"></span><span class="corner br"></span>
                     <span class="rec"><span class="dot"></span> REC · LIVE</span>
-                    <span class="label">RTSP · front gate</span>
+                    <span class="label">RTSP · main gate</span>
                     <span class="camid">CAM 01</span>
-                    <span class="ts">18:42:07</span>
+                    <span class="ts">17:42:09</span>
                   </div>
                 </div>
-                One person at the gate, appears to be a delivery courier holding a parcel. No vehicle. They've been waiting about 40 seconds.
+                Four visitors so far today. The most recent was a delivery rider at the main gate, 5:42 PM — admitted by the guard.
               </div>
-              <div class="time">6:42 PM</div>
+              <div class="time">5:43 PM</div>
             </div>
 
             <div class="msg out">
-              <div class="bubble">what happened in the last hour?</div>
-              <div class="time">6:43 PM</div>
+              <div class="bubble">Anything after midnight?</div>
+              <div class="time">5:43 PM</div>
             </div>
 
             <div class="msg in">
               <div class="bubble">
-                3 events logged:<br />
-                · 6:42 PM — courier at the gate<br />
-                · 6:10 PM — vehicle parked outside<br />
-                · 5:51 PM — gate opened, two people entered
+                One event after midnight: motion at the side gate, 1:04 AM. Looked like a cat crossing the driveway — nothing that needed you.
               </div>
-              <div class="time">6:43 PM</div>
+              <div class="time">5:43 PM</div>
+            </div>
+
+            <div class="msg out">
+              <div class="bubble">Alert me if anyone loiters.</div>
+              <div class="time">5:44 PM</div>
+            </div>
+
+            <div class="msg in">
+              <div class="bubble">Done. I'll keep watch on the entrance and message you the moment anyone lingers more than two minutes.</div>
+              <div class="time">5:44 PM</div>
             </div>
 
             <div class="msg in">
@@ -218,20 +208,56 @@
     </div>
   </section>
 
-  <!-- STORY -->
-  <section class="story wrap">
-    <div class="story-grid">
-      <div class="story-quote reveal">
-        <span class="eyebrow" style="margin-bottom:1.4rem;"><span class="idx">04</span> Why we started</span>
-        <blockquote>
-          “If they can implement this, it will help with the cultism and secret cults in the school area.”
-        </blockquote>
-        <span class="src">— Bakery manager · Yaba, Lagos</span>
+  <!-- WHY: slider (Why now / Why we started) -->
+  <section class="whyslider wrap" id="vision" aria-roledescription="carousel" aria-label="Why now and why we started">
+    <div class="whyslider-viewport">
+      <div class="whyslider-track" data-i="0">
+
+        <!-- slide 1 — Why now -->
+        <div class="whyslide" role="group" aria-roledescription="slide" aria-label="Why now">
+          <div class="vision-grid">
+            <div class="vision-quote">
+              <span class="eyebrow" style="margin-bottom:1.4rem;"><span class="idx">05</span> Why now</span>
+              <blockquote>
+                <span class="qmark">“</span>AI is likely to close the technology divide,<span class="qmark">”</span> offering developing countries a chance to narrow long-standing gaps through its accessibility and abundance.
+              </blockquote>
+              <cite>— Jensen Huang · CEO, NVIDIA</cite>
+            </div>
+            <div class="vision-body">
+              <p class="lead-line">We agree, <em>with a caveat.</em></p>
+              <p>Every prior wave reached Africa assuming infrastructure that wasn't there. AI is the first we can design for those constraints from the start, but the divide only closes if someone builds the layer underneath.</p>
+              <a class="more-link" href="thesis/">Read the thesis <span class="arr">→</span></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- slide 2 — Why we started -->
+        <div class="whyslide" role="group" aria-roledescription="slide" aria-label="Why we started">
+          <div class="story-grid">
+            <div class="story-quote">
+              <span class="eyebrow" style="margin-bottom:1.4rem;"><span class="idx">06</span> Why we started</span>
+              <blockquote>
+                “If they can implement this, it will help with the cultism and secret cults in the school area.”
+              </blockquote>
+              <span class="src">— Bakery manager · Yaba, Lagos</span>
+            </div>
+            <div class="story-body">
+              <p class="story-lead">A bakery beside Yabatech Polytechnic, through a stretch of repeated gun violence. We built Gateman-AI for the people the enterprise security industry never reaches.</p>
+              <a class="more-link" href="story/">See the full story <span class="arr">→</span></a>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="story-body reveal">
-        <p class="story-lead">A bakery beside Yabatech Polytechnic, through a stretch of repeated gun violence. We built Gateman-AI for the people the enterprise security industry never reaches.</p>
-        <a class="more-link" href="story/">See the full story <span class="arr">→</span></a>
+    </div>
+
+    <div class="whyslider-nav reveal">
+      <button class="why-arrow" type="button" data-dir="-1" aria-label="Previous">←</button>
+      <div class="why-dots" role="tablist">
+        <button class="why-dot is-active" type="button" data-i="0" role="tab" aria-selected="true" aria-label="Why now"></button>
+        <button class="why-dot" type="button" data-i="1" role="tab" aria-selected="false" aria-label="Why we started"></button>
       </div>
+      <button class="why-arrow" type="button" data-dir="1" aria-label="Next">→</button>
     </div>
   </section>
 
@@ -279,6 +305,55 @@
         });
       }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
       els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+
+  <!-- live feed timestamp -->
+  <script>
+    (function () {
+      var el = document.getElementById('tfTs');
+      if (!el) return;
+      var t = new Date(); t.setHours(21, 4, 18, 0);
+      function pad(n) { return (n < 10 ? '0' : '') + n; }
+      setInterval(function () {
+        t.setSeconds(t.getSeconds() + 1);
+        el.textContent = pad(t.getHours()) + ':' + pad(t.getMinutes()) + ':' + pad(t.getSeconds());
+      }, 1000);
+    })();
+  </script>
+
+  <!-- why slider -->
+  <script>
+    (function () {
+      var root = document.querySelector('.whyslider');
+      if (!root) return;
+      var track = root.querySelector('.whyslider-track');
+      var slides = root.querySelectorAll('.whyslide');
+      var dots = root.querySelectorAll('.why-dot');
+      var arrows = root.querySelectorAll('.why-arrow');
+      var n = slides.length, i = 0, timer = null;
+      var DURATION = 5000;
+      function render() {
+        track.style.transform = 'translateX(' + (-i * 100) + '%)';
+        track.setAttribute('data-i', i);
+        dots.forEach(function (d, k) {
+          var on = k === i;
+          d.classList.toggle('is-active', on);
+          d.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+      }
+      function go(to) { i = (to + n) % n; render(); }
+      function start() { stop(); timer = setInterval(function () { go(i + 1); }, DURATION); }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      dots.forEach(function (d) { d.addEventListener('click', function () { go(+d.dataset.i); start(); }); });
+      arrows.forEach(function (a) { a.addEventListener('click', function () { go(i + (+a.dataset.dir)); start(); }); });
+      root.addEventListener('mouseenter', stop);
+      root.addEventListener('mouseleave', start);
+      render();
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (e) { e[0].isIntersecting ? start() : stop(); }, { threshold: 0.25 });
+        io.observe(root);
+      }
     })();
   </script>
 
