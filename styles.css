@@ -150,6 +150,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight
 
 /* logo lockup */
 .logo { display: inline-flex; align-items: baseline; gap: 0.55rem; }
+.logo img { height: 34px; width: auto; display: block; }
 .logo .mark {
   font-family: var(--font-mono);
   font-weight: 500;
