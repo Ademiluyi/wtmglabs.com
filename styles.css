@@ -134,6 +134,63 @@ a { color: inherit; text-decoration: none; }
 
 .section-rule { height: 1px; background: var(--line); border: 0; }
 
+/* ---------- EDGE RAILS ----------
+   Two hairlines tracking the content column: they sit on the max-width box
+   on wide screens, then hold a small fixed inset once the viewport is
+   narrower than the column. Drawn per top-level block so each one inherits
+   a rail colour that suits its own background. */
+:root { --rail: var(--line); }
+
+:root { --rail-gutter: clamp(0.75rem, 3vw, 1.25rem); }
+
+/* Full-bleed blocks span the viewport, so the inset is measured off the block. */
+body > nav,
+body > main,
+body > header,
+body > section,
+body > footer {
+  --rail-inset: max(var(--rail-gutter), calc((100% - var(--maxw)) / 2));
+}
+/* Width-capped blocks are already centred at --maxw, so their own box has
+   absorbed that offset — subtract it, or the rails jog at section seams. */
+body > .wrap {
+  --rail-inset: max(0px, calc(var(--rail-gutter) - max(0px, (100vw - var(--maxw)) / 2)));
+}
+/* nav is sticky — it already establishes a containing block, leave it alone */
+body > main,
+body > header,
+body > section,
+body > footer { position: relative; }
+
+body > nav::before,    body > nav::after,
+body > main::before,   body > main::after,
+body > header::before, body > header::after,
+body > section::before,body > section::after,
+body > footer::before, body > footer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--rail);
+  pointer-events: none;
+  z-index: 2;
+}
+body > nav::before,
+body > main::before,
+body > header::before,
+body > section::before,
+body > footer::before { left: var(--rail-inset); }
+
+body > nav::after,
+body > main::after,
+body > header::after,
+body > section::after,
+body > footer::after { right: var(--rail-inset); }
+
+/* dark-backed blocks need the rail to read light instead of dark */
+.product, .footer { --rail: var(--on-dark-line); }
+
 h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight); letter-spacing: var(--display-track); line-height: 1.02; }
 
 .accent { color: var(--accent); }
@@ -205,6 +262,8 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: var(--display-weight
 .hero-top { display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem 1rem; margin-bottom: clamp(1.4rem, 3vw, 2.2rem); }
 .hero-top .line { flex: 1; height: 1px; background: var(--line); }
 .hero-top .eyebrow { white-space: nowrap; }
+.hero-top .sep { color: var(--muted-2); }
+@media (max-width: 460px) { .hero-top { gap: 0.35rem 0.8rem; } .hero-top .sep { display: none; } }
 
 .hero h1 {
   font-size: clamp(2.7rem, 7.2vw, 6.1rem);
